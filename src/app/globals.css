@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+    color: #1c1917;
+    background-color: #faf9f7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #1c1917;
+    color: #faf9f7;
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 2px;
+    background: #d6d3cc;
+    border-radius: 0;
+    outline: none;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #1c1917;
+    cursor: pointer;
+    border: 2px solid #faf9f7;
+    box-shadow: 0 0 0 1px #1c1917;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #1c1917;
+    cursor: pointer;
+    border: 2px solid #faf9f7;
+    box-shadow: 0 0 0 1px #1c1917;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3
+      bg-stone-900 text-stone-50 text-sm font-medium tracking-wide
+      rounded-full transition-all duration-200
+      hover:bg-stone-800 active:scale-[0.98]
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3
+      bg-transparent text-stone-900 text-sm font-medium tracking-wide
+      border border-stone-300 rounded-full transition-all duration-200
+      hover:border-stone-900 active:scale-[0.98]
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center text-xs text-stone-500
+      hover:text-stone-900 transition-colors
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50 focus-visible:rounded-sm;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2.5 bg-transparent text-sm text-stone-900
+      border border-stone-300 rounded-none transition-colors duration-200
+      placeholder:text-stone-400
+      focus:outline-none focus:border-stone-900
+      focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-1;
+  }
+
+  .select-field {
+    @apply w-full px-4 py-2.5 bg-transparent text-sm text-stone-900
+      border border-stone-300 rounded-none transition-colors duration-200
+      focus:outline-none focus:border-stone-900
+      focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-1;
+  }
+}

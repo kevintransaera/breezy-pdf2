@@ -42,6 +42,7 @@ export default function AddPageNumbersPage() {
   return (
     <ToolPageLayout
       title="Add Page Numbers"
+      slug="add-page-numbers"
       description="Add page numbers to your PDF with customizable position, size, and format."
       faq={faq}
       howTo={howTo}

@@ -156,6 +156,78 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Why Breezy PDF — keyword-rich content for SEO */}
+      <section className="border-t border-stone-200">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+          <h2 className="text-2xl sm:text-3xl text-stone-900 tracking-tight mb-8">
+            The free PDF editor that{' '}
+            <em className="font-serif not-italic">respects your privacy</em>
+          </h2>
+          <div className="space-y-6 text-sm text-stone-500 leading-relaxed">
+            <p>
+              Most online PDF tools require you to upload your files to a remote server.
+              That means your contracts, tax returns, medical records, and personal documents
+              pass through someone else&apos;s infrastructure — often without clear data retention policies.
+            </p>
+            <p>
+              Breezy PDF is different. Every tool runs entirely in your web browser using
+              client-side JavaScript. Your files are processed locally on your device and are
+              never transmitted over the internet. There are no accounts to create, no file
+              size limits imposed by a server, and no waiting for uploads or downloads.
+            </p>
+            <p>
+              Whether you need to <Link href="/merge-pdf" className="text-stone-900 underline underline-offset-2">merge PDF files</Link>,{' '}
+              <Link href="/compress-pdf" className="text-stone-900 underline underline-offset-2">compress a PDF for email</Link>,{' '}
+              <Link href="/split-pdf" className="text-stone-900 underline underline-offset-2">split a PDF into separate pages</Link>, or{' '}
+              <Link href="/pdf-to-images" className="text-stone-900 underline underline-offset-2">convert a PDF to images</Link> —
+              every operation is instant, free, and completely private.
+            </p>
+            <p>
+              Breezy PDF supports all modern browsers on desktop and mobile. No software to
+              install, no plugins required. Just open a tool, drop in your file, and get your
+              result in seconds.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Blog preview — drives traffic to long-form content */}
+      <section className="border-t border-stone-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+          <div className="flex items-baseline justify-between mb-8">
+            <h2 className="text-2xl sm:text-3xl text-stone-900 tracking-tight">
+              From the <em className="font-serif not-italic">blog</em>
+            </h2>
+            <Link href="/blog" className="text-xs text-stone-400 hover:text-stone-900 transition-colors">
+              All posts &rarr;
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-stone-200 border border-stone-200">
+            {[
+              {
+                href: '/blog/how-to-merge-pdf-files',
+                title: 'How to Merge PDF Files Without Uploading Them',
+                excerpt: 'Most PDF merge tools upload your files to remote servers. Here\'s a safer way.',
+              },
+              {
+                href: '/blog/pdf-privacy-why-it-matters',
+                title: 'PDF Privacy: Why It Matters More Than You Think',
+                excerpt: 'What really happens when you upload a PDF to a free online tool?',
+              },
+            ].map((post) => (
+              <Link
+                key={post.href}
+                href={post.href}
+                className="group p-8 bg-stone-50 hover:bg-white transition-colors"
+              >
+                <h3 className="text-sm font-medium text-stone-900 group-hover:underline mb-2">{post.title}</h3>
+                <p className="text-xs text-stone-400 leading-relaxed">{post.excerpt}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Bottom ad */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
         <AdUnit slot="home-bottom" format="horizontal" className="w-full max-w-[728px] mx-auto h-[90px]" />

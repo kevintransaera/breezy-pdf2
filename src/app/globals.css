@@ -89,4 +89,37 @@
       focus:outline-none focus:border-stone-900
       focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-1;
   }
+
+  .prose-breezy {
+    @apply text-stone-600 text-[15px] leading-[1.8];
+  }
+
+  .prose-breezy p {
+    @apply mb-6;
+  }
+
+  .prose-breezy h2 {
+    @apply text-lg sm:text-xl font-medium text-stone-900 tracking-tight mt-10 mb-4;
+  }
+
+  .prose-breezy strong {
+    @apply text-stone-900 font-medium;
+  }
+
+  .prose-breezy ul,
+  .prose-breezy ol {
+    @apply mb-6 pl-5 space-y-2;
+  }
+
+  .prose-breezy ul {
+    @apply list-disc;
+  }
+
+  .prose-breezy ol {
+    @apply list-decimal;
+  }
+
+  .prose-breezy li {
+    @apply pl-1;
+  }
 }

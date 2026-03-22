@@ -44,6 +44,7 @@ export default function PdfToImagesPage() {
   return (
     <ToolPageLayout
       title="PDF to Images"
+      slug="pdf-to-images"
       description="Convert each page of your PDF into high-quality PNG or JPG images."
       faq={faq}
       howTo={howTo}

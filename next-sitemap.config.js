@@ -18,10 +18,15 @@ module.exports = {
       '/images-to-pdf', '/rotate-pdf', '/add-page-numbers', '/reorder-pages',
     ];
 
+    let priority = 0.5;
+    if (path === '/') priority = 1.0;
+    else if (toolPages.includes(path)) priority = 0.9;
+    else if (path.startsWith('/blog')) priority = 0.7;
+
     return {
       loc: path,
-      changefreq: config.changefreq,
-      priority: path === '/' ? 1.0 : toolPages.includes(path) ? 0.9 : 0.5,
+      changefreq: path.startsWith('/blog') ? 'monthly' : config.changefreq,
+      priority,
       lastmod: new Date().toISOString(),
     };
   },

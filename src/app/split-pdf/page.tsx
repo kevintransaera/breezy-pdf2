@@ -44,6 +44,7 @@ export default function SplitPdfPage() {
   return (
     <ToolPageLayout
       title="Split PDF"
+      slug="split-pdf"
       description="Extract specific pages or split your PDF into separate documents. Select pages visually or enter a range."
       faq={faq}
       howTo={howTo}

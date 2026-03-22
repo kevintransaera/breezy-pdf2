@@ -44,6 +44,7 @@ export default function ReorderPagesPage() {
   return (
     <ToolPageLayout
       title="Reorder Pages"
+      slug="reorder-pages"
       description="Rearrange the pages in your PDF document using simple arrow controls."
       faq={faq}
       howTo={howTo}

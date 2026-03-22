@@ -1,4 +1,7 @@
+import Link from 'next/link';
 import AdUnit from '@/components/ads/AdUnit';
+import { tools } from '@/lib/tools';
+import ToolIcon from '@/components/shared/ToolIcon';
 
 export interface FaqItem {
   question: string;
@@ -7,13 +10,16 @@ export interface FaqItem {
 
 interface ToolPageLayoutProps {
   title: string;
+  slug: string;
   description: string;
   children: React.ReactNode;
   faq?: FaqItem[];
   howTo?: { description: string; steps: string[] };
 }
 
-export default function ToolPageLayout({ title, description, children, faq, howTo }: ToolPageLayoutProps) {
+export default function ToolPageLayout({ title, slug, description, children, faq, howTo }: ToolPageLayoutProps) {
+  const relatedTools = tools.filter((t) => t.slug !== slug).slice(0, 3);
+
   const faqJsonLd = faq
     ? {
         '@context': 'https://schema.org',
@@ -29,8 +35,21 @@ export default function ToolPageLayout({ title, description, children, faq, howT
       }
     : null;
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://breezy-pdf.com' },
+      { '@type': 'ListItem', position: 2, name: title, item: `https://breezy-pdf.com/${slug}` },
+    ],
+  };
+
   return (
     <article className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {faqJsonLd && (
         <script
           type="application/ld+json"
@@ -97,6 +116,31 @@ export default function ToolPageLayout({ title, description, children, faq, howT
           </dl>
         </section>
       )}
+
+      {/* Related tools — internal cross-linking for SEO */}
+      <section className="mt-12 border-t border-stone-200 pt-12">
+        <h2 className="text-lg font-medium text-stone-900 mb-6">Other PDF Tools</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-stone-200 border border-stone-200">
+          {relatedTools.map((tool) => (
+            <Link
+              key={tool.slug}
+              href={`/${tool.slug}`}
+              className="group flex flex-col p-6 bg-stone-50 hover:bg-white transition-colors"
+            >
+              <div className="text-stone-400 group-hover:text-stone-900 transition-colors mb-3">
+                <ToolIcon name={tool.icon} className="w-5 h-5" />
+              </div>
+              <span className="text-sm font-medium text-stone-900">{tool.name}</span>
+              <span className="text-xs text-stone-400 mt-1">{tool.description}</span>
+            </Link>
+          ))}
+        </div>
+        <div className="mt-4 text-center">
+          <Link href="/#tools" className="text-xs text-stone-400 hover:text-stone-900 transition-colors">
+            View all tools &rarr;
+          </Link>
+        </div>
+      </section>
     </article>
   );
 }

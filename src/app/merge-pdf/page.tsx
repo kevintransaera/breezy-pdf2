@@ -43,6 +43,7 @@ export default function MergePdfPage() {
   return (
     <ToolPageLayout
       title="Merge PDF Files"
+      slug="merge-pdf"
       description="Combine multiple PDF files into a single document. Drag and drop your files, reorder them, and merge — all in your browser."
       faq={faq}
       howTo={howTo}

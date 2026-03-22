@@ -44,6 +44,7 @@ export default function CompressPdfPage() {
   return (
     <ToolPageLayout
       title="Compress PDF"
+      slug="compress-pdf"
       description="Reduce your PDF file size. Choose lossless for text-heavy PDFs or lossy for maximum compression."
       faq={faq}
       howTo={howTo}

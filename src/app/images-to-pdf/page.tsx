@@ -42,6 +42,7 @@ export default function ImagesToPdfPage() {
   return (
     <ToolPageLayout
       title="Images to PDF"
+      slug="images-to-pdf"
       description="Combine multiple JPG or PNG images into a single PDF document. Reorder and choose page size."
       faq={faq}
       howTo={howTo}

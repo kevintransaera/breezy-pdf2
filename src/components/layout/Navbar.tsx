@@ -55,6 +55,9 @@ export default function Navbar() {
               </div>
             )}
           </div>
+          <Link href="/blog" className="text-xs tracking-widest uppercase text-stone-500 hover:text-stone-900 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 rounded-sm">
+            Blog
+          </Link>
           <div className="hidden sm:flex items-center gap-2 text-xs tracking-wide text-stone-500 border border-stone-300 px-3 py-1.5 rounded-full">
             <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
               <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />

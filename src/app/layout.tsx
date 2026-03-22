@@ -69,6 +69,28 @@ export const metadata: Metadata = {
   },
 };
 
+const siteSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Breezy PDF",
+    url: "https://breezy-pdf.com",
+    description:
+      "Free, private, browser-based PDF tools. Merge, split, compress, convert, rotate, and more.",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Breezy PDF",
+    url: "https://breezy-pdf.com",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://breezy-pdf.com/#tools",
+      "query-input": "required name=search_term_string",
+    },
+  },
+];
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -79,6 +101,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${playfair.variable} font-sans antialiased min-h-screen flex flex-col`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
+        />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

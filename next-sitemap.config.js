@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://breezypdf.com',
+  siteUrl: process.env.SITE_URL || 'https://breezy-pdf.com',
   generateRobotsTxt: true,
   changefreq: 'weekly',
   priority: 0.7,

@@ -1,14 +1,43 @@
 import AdUnit from '@/components/ads/AdUnit';
 
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
 interface ToolPageLayoutProps {
   title: string;
   description: string;
   children: React.ReactNode;
+  faq?: FaqItem[];
+  howTo?: { description: string; steps: string[] };
 }
 
-export default function ToolPageLayout({ title, description, children }: ToolPageLayoutProps) {
+export default function ToolPageLayout({ title, description, children, faq, howTo }: ToolPageLayoutProps) {
+  const faqJsonLd = faq
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faq.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
+      }
+    : null;
+
   return (
     <article className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
+
       <div className="text-center mb-14">
         <h1 className="font-serif text-4xl md:text-5xl text-stone-900 mb-3 tracking-tight">{title}</h1>
         <p className="text-stone-500 text-sm max-w-md mx-auto leading-relaxed">{description}</p>
@@ -33,6 +62,41 @@ export default function ToolPageLayout({ title, description, children }: ToolPag
           Your files never leave your device
         </div>
       </div>
+
+      {/* How to section — crawlable content for SEO */}
+      {howTo && (
+        <section className="mt-16 border-t border-stone-200 pt-12">
+          <h2 className="text-lg font-medium text-stone-900 mb-4">
+            How to {title}
+          </h2>
+          <p className="text-sm text-stone-500 leading-relaxed mb-6">{howTo.description}</p>
+          <ol className="space-y-3">
+            {howTo.steps.map((step, i) => (
+              <li key={i} className="flex gap-3 text-sm text-stone-600">
+                <span className="text-stone-300 tabular-nums text-xs mt-0.5">{String(i + 1).padStart(2, '0')}</span>
+                {step}
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+
+      {/* FAQ section — targets "People also ask" in Google */}
+      {faq && faq.length > 0 && (
+        <section className="mt-12 border-t border-stone-200 pt-12">
+          <h2 className="text-lg font-medium text-stone-900 mb-6">
+            Frequently Asked Questions
+          </h2>
+          <dl className="space-y-6">
+            {faq.map((item, i) => (
+              <div key={i}>
+                <dt className="text-sm font-medium text-stone-900 mb-1">{item.question}</dt>
+                <dd className="text-sm text-stone-500 leading-relaxed">{item.answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
     </article>
   );
 }

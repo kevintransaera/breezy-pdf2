@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://breezypdf.com
+Host: https://breezy-pdf.com
 
 # Sitemaps
-Sitemap: https://breezypdf.com/sitemap.xml
+Sitemap: https://breezy-pdf.com/sitemap.xml

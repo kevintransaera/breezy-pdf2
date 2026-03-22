@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Playfair_Display } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
@@ -19,6 +20,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://breezy-pdf.com"),
   title: {
     default: "Breezy PDF — Free Online PDF Tools | Private & Fast",
     template: "%s | Breezy PDF",
@@ -34,7 +36,37 @@ export const metadata: Metadata = {
     "free pdf tools",
     "online pdf editor",
     "private pdf tools",
+    "browser pdf tools",
+    "client-side pdf",
   ],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Breezy PDF",
+    title: "Breezy PDF — Free Online PDF Tools | Private & Fast",
+    description:
+      "Free browser-based PDF tools. Merge, split, compress, convert, and more. Your files never leave your device.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Breezy PDF — Free Online PDF Tools | Private & Fast",
+    description:
+      "Free browser-based PDF tools. Merge, split, compress, convert, and more. Your files never leave your device.",
+  },
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -50,6 +82,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
         {process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID && process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID !== 'ca-pub-XXXXXXXXXXXXXXXX' && (
           <Script
             async

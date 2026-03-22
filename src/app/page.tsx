@@ -3,9 +3,40 @@ import { tools } from '@/lib/tools';
 import ToolIcon from '@/components/shared/ToolIcon';
 import AdUnit from '@/components/ads/AdUnit';
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Breezy PDF',
+  url: 'https://breezy-pdf.com',
+  description:
+    'Free online PDF tools that work entirely in your browser. Merge, split, compress, convert, rotate, and more. Your files never leave your device.',
+  applicationCategory: 'UtilityApplication',
+  operatingSystem: 'Any',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  featureList: [
+    'Merge PDF files',
+    'Split PDF documents',
+    'Compress PDF files',
+    'Convert PDF to images',
+    'Convert images to PDF',
+    'Rotate PDF pages',
+    'Add page numbers',
+    'Reorder PDF pages',
+  ],
+  browserRequirements: 'Requires a modern web browser with JavaScript enabled',
+};
+
 export default function HomePage() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-16 sm:pb-20">
         <div className="max-w-2xl">
@@ -21,9 +52,9 @@ export default function HomePage() {
             <Link href="/merge-pdf" className="btn-primary">
               Get Started
             </Link>
-            <Link href="#tools" className="btn-secondary">
+            <a href="#tools" className="btn-secondary">
               View All Tools
-            </Link>
+            </a>
           </div>
         </div>
       </section>

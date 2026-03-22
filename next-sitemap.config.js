@@ -16,6 +16,7 @@ module.exports = {
     const toolPages = [
       '/merge-pdf', '/split-pdf', '/compress-pdf', '/pdf-to-images',
       '/images-to-pdf', '/rotate-pdf', '/add-page-numbers', '/reorder-pages',
+      '/sign-pdf', '/add-watermark', '/delete-pages',
     ];
 
     let priority = 0.5;

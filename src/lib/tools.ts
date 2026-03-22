@@ -57,4 +57,25 @@ export const tools: ToolInfo[] = [
     icon: 'reorder',
     color: '',
   },
+  {
+    name: 'Sign PDF',
+    slug: 'sign-pdf',
+    description: 'Draw and place your signature on any page',
+    icon: 'sign',
+    color: '',
+  },
+  {
+    name: 'Watermark',
+    slug: 'add-watermark',
+    description: 'Add a text watermark to every page',
+    icon: 'watermark',
+    color: '',
+  },
+  {
+    name: 'Delete Pages',
+    slug: 'delete-pages',
+    description: 'Remove unwanted pages from your PDF',
+    icon: 'delete',
+    color: '',
+  },
 ];

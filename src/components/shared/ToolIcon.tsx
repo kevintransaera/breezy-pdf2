@@ -82,6 +82,28 @@ export default function ToolIcon({ name, className = 'w-5 h-5' }: ToolIconProps)
           <polyline points="17 15 21 18 17 21" />
         </svg>
       );
+    case 'sign':
+      return (
+        <svg {...props}>
+          <path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5z" />
+        </svg>
+      );
+    case 'watermark':
+      return (
+        <svg {...props}>
+          <path d="M12 2L2 7l10 5 10-5-10-5z" />
+          <path d="M2 17l10 5 10-5" />
+          <path d="M2 12l10 5 10-5" />
+        </svg>
+      );
+    case 'delete':
+      return (
+        <svg {...props}>
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+          <path d="M14 2v6h6" />
+          <line x1="9" y1="13" x2="15" y2="13" />
+        </svg>
+      );
     default:
       return (
         <svg {...props}>

@@ -35,6 +35,24 @@ export default function ToolPageLayout({ title, slug, description, children, faq
       }
     : null;
 
+  const howToJsonLd = howTo
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: `How to ${title}`,
+        description: howTo.description,
+        step: howTo.steps.map((step, i) => ({
+          '@type': 'HowToStep',
+          position: i + 1,
+          text: step,
+        })),
+        tool: {
+          '@type': 'HowToTool',
+          name: 'Breezy PDF',
+        },
+      }
+    : null;
+
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -54,6 +72,12 @@ export default function ToolPageLayout({ title, slug, description, children, faq
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
+      {howToJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
         />
       )}
 

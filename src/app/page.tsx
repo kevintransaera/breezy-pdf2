@@ -26,6 +26,9 @@ const jsonLd = {
     'Rotate PDF pages',
     'Add page numbers',
     'Reorder PDF pages',
+    'Sign PDF documents',
+    'Add watermarks to PDF',
+    'Delete pages from PDF',
   ],
   browserRequirements: 'Requires a modern web browser with JavaScript enabled',
 };
@@ -178,8 +181,11 @@ export default function HomePage() {
             <p>
               Whether you need to <Link href="/merge-pdf" className="text-stone-900 underline underline-offset-2">merge PDF files</Link>,{' '}
               <Link href="/compress-pdf" className="text-stone-900 underline underline-offset-2">compress a PDF for email</Link>,{' '}
-              <Link href="/split-pdf" className="text-stone-900 underline underline-offset-2">split a PDF into separate pages</Link>, or{' '}
-              <Link href="/pdf-to-images" className="text-stone-900 underline underline-offset-2">convert a PDF to images</Link> —
+              <Link href="/split-pdf" className="text-stone-900 underline underline-offset-2">split a PDF into separate pages</Link>,{' '}
+              <Link href="/pdf-to-images" className="text-stone-900 underline underline-offset-2">convert a PDF to images</Link>,{' '}
+              <Link href="/sign-pdf" className="text-stone-900 underline underline-offset-2">sign a PDF</Link>,{' '}
+              <Link href="/rotate-pdf" className="text-stone-900 underline underline-offset-2">rotate pages</Link>, or{' '}
+              <Link href="/add-page-numbers" className="text-stone-900 underline underline-offset-2">add page numbers</Link> —
               every operation is instant, free, and completely private.
             </p>
             <p>
@@ -204,6 +210,16 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-stone-200 border border-stone-200">
             {[
+              {
+                href: '/blog/how-to-sign-a-pdf',
+                title: 'How to Sign a PDF Without Printing It',
+                excerpt: 'Skip the print-sign-scan routine. Sign documents digitally in your browser.',
+              },
+              {
+                href: '/blog/how-to-split-a-pdf',
+                title: 'How to Split a PDF Into Separate Pages',
+                excerpt: 'Extract specific pages or break a large PDF into smaller files — privately.',
+              },
               {
                 href: '/blog/how-to-merge-pdf-files',
                 title: 'How to Merge PDF Files Without Uploading Them',

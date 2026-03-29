@@ -39,6 +39,16 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/blog/how-to-sign-a-pdf" className="text-xs text-stone-400 hover:text-stone-900 transition-colors">
+                  How to Sign a PDF
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/how-to-split-a-pdf" className="text-xs text-stone-400 hover:text-stone-900 transition-colors">
+                  How to Split a PDF
+                </Link>
+              </li>
+              <li>
                 <Link href="/blog/how-to-merge-pdf-files" className="text-xs text-stone-400 hover:text-stone-900 transition-colors">
                   How to Merge PDFs
                 </Link>

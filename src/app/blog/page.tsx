@@ -12,12 +12,60 @@ export const metadata: Metadata = {
     'compress pdf guide',
     'pdf privacy',
     'convert images to pdf',
+    'split pdf guide',
+    'sign pdf online',
+    'rotate pdf pages',
+    'pdf to images',
+    'add page numbers to pdf',
+    'remove pages from pdf',
     'free pdf tools blog',
   ],
   alternates: { canonical: '/blog' },
 };
 
 const posts = [
+  {
+    slug: 'how-to-remove-pages-from-pdf',
+    title: 'How to Remove Pages From a PDF',
+    date: '2026-03-28',
+    excerpt:
+      'Delete unwanted pages from any PDF — blank pages, confidential sections, or unnecessary cover sheets. Preview pages, select which to remove, and download the cleaned result privately.',
+  },
+  {
+    slug: 'how-to-add-page-numbers-to-pdf',
+    title: 'How to Add Page Numbers to a PDF',
+    date: '2026-03-27',
+    excerpt:
+      'Page numbers are invisible until they are missing. Learn how to add sequential numbering to any PDF — choose position, starting number, and format — without paid software or uploads.',
+  },
+  {
+    slug: 'how-to-convert-pdf-to-images',
+    title: 'How to Convert a PDF to Images (PNG or JPG)',
+    date: '2026-03-26',
+    excerpt:
+      'Need PDF pages as images for a presentation, website, or social media? Learn the difference between PNG and JPG, choose the right resolution, and convert entirely in your browser.',
+  },
+  {
+    slug: 'how-to-rotate-pdf-pages',
+    title: 'How to Rotate PDF Pages and Save the Result',
+    date: '2026-03-25',
+    excerpt:
+      'Sideways scans and mixed orientations are a constant frustration. Learn how to permanently rotate PDF pages — not just the view — and save a corrected document in seconds.',
+  },
+  {
+    slug: 'how-to-sign-a-pdf',
+    title: 'How to Sign a PDF Without Printing It',
+    date: '2026-03-24',
+    excerpt:
+      'Skip the print-sign-scan routine. Draw or upload your signature, place it on any page, and download the signed document — all in your browser, with no cloud uploads.',
+  },
+  {
+    slug: 'how-to-split-a-pdf',
+    title: 'How to Split a PDF Into Separate Pages',
+    date: '2026-03-22',
+    excerpt:
+      'Extract specific pages, split by range, or break a large PDF into individual files. Browser-based splitting keeps your documents private and handles files of any size.',
+  },
   {
     slug: 'how-to-merge-pdf-files',
     title: 'How to Merge PDF Files Without Uploading Them to the Internet',
@@ -48,9 +96,22 @@ const posts = [
   },
 ];
 
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://breezy-pdf.com' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://breezy-pdf.com/blog' },
+  ],
+};
+
 export default function BlogPage() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Header */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-12 sm:pb-16">
         <div className="max-w-2xl">

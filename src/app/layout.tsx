@@ -33,6 +33,13 @@ export const metadata: Metadata = {
     "split pdf",
     "compress pdf",
     "pdf to images",
+    "images to pdf",
+    "rotate pdf",
+    "sign pdf",
+    "add page numbers to pdf",
+    "delete pages from pdf",
+    "reorder pdf pages",
+    "add watermark to pdf",
     "free pdf tools",
     "online pdf editor",
     "private pdf tools",
@@ -75,14 +82,17 @@ const siteSchema = [
     "@type": "Organization",
     name: "Breezy PDF",
     url: "https://breezy-pdf.com",
+    logo: "https://breezy-pdf.com/icon.svg",
     description:
-      "Free, private, browser-based PDF tools. Merge, split, compress, convert, rotate, and more.",
+      "Free, private, browser-based PDF tools. Merge, split, compress, convert, rotate, sign, watermark, and more. All processing happens in your browser — files never leave your device.",
   },
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Breezy PDF",
     url: "https://breezy-pdf.com",
+    description:
+      "Free online PDF tools that work entirely in your browser. Merge, split, compress, convert, rotate, sign, and more.",
     potentialAction: {
       "@type": "SearchAction",
       target: "https://breezy-pdf.com/#tools",

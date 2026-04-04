@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import ToolPageLayout from '@/components/layout/ToolPageLayout';
 
 const DeletePagesTool = dynamic(() => import('@/components/tools/DeletePagesTool'), { ssr: false });
@@ -40,6 +41,48 @@ const howTo = {
   ],
 };
 
+const guide = (
+  <>
+    <h2>When to Delete PDF Pages</h2>
+    <p>
+      Removing pages from a PDF is more common than you might think. Scanners frequently insert
+      blank pages when scanning double-sided documents. Reports from automated systems often
+      include unnecessary cover pages or disclaimers. Before sharing a document externally, you
+      might need to remove pages containing confidential information, internal notes, or
+      irrelevant sections.
+    </p>
+    <h2>How Page Deletion Works</h2>
+    <p>
+      PDF viewers are typically read-only — they let you view and annotate, but not modify the
+      document&apos;s structure. Deleting a page requires rewriting the PDF&apos;s internal page tree and
+      cross-reference table. Breezy PDF uses <strong>pdf-lib</strong> to handle this entirely in
+      your browser. The tool creates a new PDF containing only the pages you want to keep, with
+      all content — text, images, links, and formatting — preserved exactly as it was.
+    </p>
+    <h2>Privacy Matters Here</h2>
+    <p>
+      The irony of cloud-based page deletion tools is that the most common reason to delete pages
+      is to remove sensitive content — yet to use those tools, you must upload the <em>entire</em>{' '}
+      document, including the sensitive pages, to a third-party server. Breezy PDF processes
+      everything locally, so the content you are removing never leaves your device.
+    </p>
+    <p>
+      For more complex document editing, you can also{' '}
+      <Link href="/split-pdf" className="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900 transition-colors">
+        split the PDF
+      </Link>{' '}
+      into sections,{' '}
+      <Link href="/reorder-pages" className="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900 transition-colors">
+        reorder pages
+      </Link>, or{' '}
+      <Link href="/merge-pdf" className="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900 transition-colors">
+        merge
+      </Link>{' '}
+      multiple documents together — all with the same privacy-first approach.
+    </p>
+  </>
+);
+
 export default function DeletePagesPage() {
   return (
     <ToolPageLayout
@@ -48,6 +91,7 @@ export default function DeletePagesPage() {
       description="Remove unwanted pages from your PDF. Select pages visually or enter a range — the rest is kept intact."
       faq={faq}
       howTo={howTo}
+      guide={guide}
     >
       <DeletePagesTool />
     </ToolPageLayout>

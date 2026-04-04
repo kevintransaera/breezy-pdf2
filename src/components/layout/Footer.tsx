@@ -69,6 +69,16 @@ export default function Footer() {
             <h3 className="text-xs tracking-widest uppercase text-stone-900 mb-4">Company</h3>
             <ul className="space-y-2">
               <li>
+                <Link href="/about" className="text-xs text-stone-400 hover:text-stone-900 transition-colors">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-xs text-stone-400 hover:text-stone-900 transition-colors">
+                  Contact
+                </Link>
+              </li>
+              <li>
                 <Link href="/privacy" className="text-xs text-stone-400 hover:text-stone-900 transition-colors">
                   Privacy Policy
                 </Link>

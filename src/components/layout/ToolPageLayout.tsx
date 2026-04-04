@@ -15,9 +15,10 @@ interface ToolPageLayoutProps {
   children: React.ReactNode;
   faq?: FaqItem[];
   howTo?: { description: string; steps: string[] };
+  guide?: React.ReactNode;
 }
 
-export default function ToolPageLayout({ title, slug, description, children, faq, howTo }: ToolPageLayoutProps) {
+export default function ToolPageLayout({ title, slug, description, children, faq, howTo, guide }: ToolPageLayoutProps) {
   const relatedTools = tools.filter((t) => t.slug !== slug).slice(0, 3);
 
   const faqJsonLd = faq
@@ -86,15 +87,9 @@ export default function ToolPageLayout({ title, slug, description, children, faq
         <p className="text-stone-500 text-sm max-w-md mx-auto leading-relaxed">{description}</p>
       </div>
 
-      {/* Ad: below title */}
-      <AdUnit slot="top-banner" format="horizontal" className="mb-8 w-full max-w-[728px] mx-auto h-[90px]" />
-
       <div className="space-y-8">
         {children}
       </div>
-
-      {/* Ad: after processing */}
-      <AdUnit slot="bottom-banner" format="horizontal" className="mt-8 w-full max-w-[728px] mx-auto h-[90px]" />
 
       <div className="mt-14 flex justify-center">
         <div className="inline-flex items-center gap-2 text-xs tracking-wide text-stone-500 border border-stone-200 px-4 py-2 rounded-full">
@@ -140,6 +135,16 @@ export default function ToolPageLayout({ title, slug, description, children, faq
           </dl>
         </section>
       )}
+
+      {/* In-depth guide — substantive content for SEO and AdSense */}
+      {guide && (
+        <section className="mt-12 border-t border-stone-200 pt-12">
+          <div className="prose-breezy">{guide}</div>
+        </section>
+      )}
+
+      {/* Ad: after all content */}
+      <AdUnit slot="bottom-banner" format="horizontal" className="mt-12 w-full max-w-[728px] mx-auto h-[90px]" />
 
       {/* Related tools — internal cross-linking for SEO */}
       <section className="mt-12 border-t border-stone-200 pt-12">

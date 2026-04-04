@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import ToolPageLayout from '@/components/layout/ToolPageLayout';
 
 const RotateTool = dynamic(() => import('@/components/tools/RotateTool'), { ssr: false });
@@ -40,6 +41,46 @@ const howTo = {
   ],
 };
 
+const guide = (
+  <>
+    <h2>Why PDFs End Up Rotated</h2>
+    <p>
+      Sideways or upside-down pages are one of the most common PDF annoyances. They happen
+      frequently with scanned documents — a page fed through a scanner at the wrong angle, a
+      landscape table in a portrait document, or a batch scan where orientation changes
+      unpredictably. Mobile scanning apps are another culprit, as phone orientation sensors do not
+      always detect the correct direction.
+    </p>
+    <h2>View Rotation vs. Permanent Rotation</h2>
+    <p>
+      Most PDF viewers let you rotate the <em>view</em> of a page, but this is temporary. When
+      you close the document or share it, the rotation resets. What you need is a permanent
+      rotation that modifies the PDF&apos;s internal page structure. Breezy PDF changes the actual
+      Rotate property in each page&apos;s definition, producing a new file where the corrected
+      orientation is permanent and visible in any viewer.
+    </p>
+    <h2>Tips for Fixing Orientation</h2>
+    <p>
+      <strong>Rotate only the pages that need it.</strong> In a multi-page document, often only
+      some pages are sideways. Check each page preview before applying rotation. Rotating a page
+      that is already correct will make it wrong.
+    </p>
+    <p>
+      <strong>Know your angles.</strong> 90° clockwise fixes pages turned on their left side.
+      270° fixes pages turned on their right side. 180° fixes upside-down pages. After correcting
+      orientation, you can{' '}
+      <Link href="/reorder-pages" className="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900 transition-colors">
+        reorder pages
+      </Link>{' '}
+      or{' '}
+      <Link href="/merge-pdf" className="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900 transition-colors">
+        merge
+      </Link>{' '}
+      the corrected document with other files for a polished final result.
+    </p>
+  </>
+);
+
 export default function RotatePdfPage() {
   return (
     <ToolPageLayout
@@ -48,6 +89,7 @@ export default function RotatePdfPage() {
       description="Rotate all pages in your PDF document by 90°, 180°, or 270°."
       faq={faq}
       howTo={howTo}
+      guide={guide}
     >
       <RotateTool />
     </ToolPageLayout>

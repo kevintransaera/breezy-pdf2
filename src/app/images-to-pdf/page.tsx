@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import ToolPageLayout from '@/components/layout/ToolPageLayout';
 import ImagesToPdfTool from '@/components/tools/ImagesToPdfTool';
 
@@ -38,6 +39,50 @@ const howTo = {
   ],
 };
 
+const guide = (
+  <>
+    <h2>Common Use Cases</h2>
+    <p>
+      Converting images to PDF is essential for organizing visual content into a shareable,
+      printable format. Photographers create portfolio PDFs from their best shots. Students
+      compile scanned handwritten notes into a single document. Businesses package product photos,
+      receipts, or whiteboard captures into organized files. Real estate agents combine property
+      photos into listing documents.
+    </p>
+    <h2>Supported Formats and Quality</h2>
+    <p>
+      Breezy PDF accepts <strong>JPG</strong>, <strong>PNG</strong>, and <strong>WebP</strong>{' '}
+      images. Each image is placed on its own page and automatically scaled to fit the selected
+      page size (A4, Letter, or Legal) while maintaining its original aspect ratio. The image
+      data is embedded directly in the PDF without re-compression, so the quality of your output
+      matches the quality of your input images.
+    </p>
+    <h2>Tips for Better Results</h2>
+    <p>
+      <strong>Use consistent image sizes.</strong> If your images are all the same dimensions, the
+      resulting PDF will look more uniform and professional. Mixing portrait and landscape images
+      is fine — each will be centered on its page — but documents look cleaner with consistent
+      orientation.
+    </p>
+    <p>
+      <strong>Order before converting.</strong> Drag and drop your images into the sequence you
+      want before clicking Convert. Once the PDF is created, you can also use the{' '}
+      <Link href="/reorder-pages" className="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900 transition-colors">
+        reorder pages tool
+      </Link>{' '}
+      to rearrange, or the{' '}
+      <Link href="/compress-pdf" className="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900 transition-colors">
+        compress tool
+      </Link>{' '}
+      to reduce the file size if the resulting PDF is too large. For the reverse operation —
+      converting a PDF into images — use the{' '}
+      <Link href="/pdf-to-images" className="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900 transition-colors">
+        PDF-to-images tool
+      </Link>.
+    </p>
+  </>
+);
+
 export default function ImagesToPdfPage() {
   return (
     <ToolPageLayout
@@ -46,6 +91,7 @@ export default function ImagesToPdfPage() {
       description="Combine multiple JPG or PNG images into a single PDF document. Reorder and choose page size."
       faq={faq}
       howTo={howTo}
+      guide={guide}
     >
       <ImagesToPdfTool />
     </ToolPageLayout>
